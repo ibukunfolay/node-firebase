@@ -1,8 +1,8 @@
-const express = require('express');
-const cors = require('cors');
+import express from 'express';
+import cors from 'cors';
 
-const config = require('./config');
-const productRoute = require('./routes/productRoute');
+import config from './config.js';
+import productRoute from './routes/productRoute.js';
 
 const app = express();
 
@@ -12,4 +12,6 @@ app.use(express.json());
 //routes
 app.use('/api', productRoute);
 
-app.listen(config.port, `Server is live @ ${config.hostUrl}`);
+app.listen(config.port, () =>
+  console.log(`Server is live @ ${config.hostUrl}`),
+);
